@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>JavaScript Obfuscator</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f4f4f4; padding: 20px; }
+        textarea { width: 100%; height: 200px; margin-bottom: 10px; padding: 10px; font-size: 14px; }
+        button { padding: 10px 20px; background-color: #007BFF; color: white; border: none; cursor: pointer; }
+        button:hover { background-color: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Code Obfuscator</h1>
+  <p>Developed by: <strong>Pjɗw Sʌzzʌɗ</strong></p>
+  <h2>Contact</h2>
+  <ul class="social-links" style="list-style-type: none; padding: 0;">
+      <li>
+          <a href="https://www.facebook.com/pjdwsazzad7" target="_blank">
+              <i class="fab fa-facebook"></i> Pjɗw Sʌzzʌɗ
+          </a>
+      </li>
+      <li>
+          <a href="https://m.me/pjdwsazzad7" target="_blank">
+              <i class="fab fa-facebook-messenger"></i> Pjɗw Sʌzzʌɗ
+          </a>
+      </li>
+      <li>
+          <a href="https://t.me/Pjdwsazzad" target="_blank">
+              <i class="fab fa-telegram"></i> Pjɗw Sʌzzʌɗ
+          </a>
+      </li>
+  </ul>
+
+    <textarea id="inputCode" placeholder="Paste your JavaScript code here..."></textarea>
+    <button onclick="obfuscateCode()">Obfuscate</button>
+    <textarea id="outputCode" placeholder="Obfuscated code will appear here..."></textarea>
+    <button onclick="copyCode()">Copy to Clipboard</button>
+
+    <script>
+        async function obfuscateCode() {
+            const code = document.getElementById('inputCode').value;
+            const response = await fetch('/obfuscate', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ code })
+            });
+
+            const data = await response.json();
+            document.getElementById('outputCode').value = data.obfuscatedCode || 'Error obfuscating code';
+        }
+
+        function copyCode() {
+            const output = document.getElementById('outputCode');
+            output.select();
+            document.execCommand('copy');
+            alert('Obfuscated code copied to clipboard!');
+        }
+    </script>
+</body>
+</html>
