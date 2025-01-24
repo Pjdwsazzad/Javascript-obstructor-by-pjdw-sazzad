@@ -1,0 +1,25 @@
+{
+  "name": "nodejs-code-obfuscator",
+  "version": "1.0.0",
+  "description": "A Node.js server for obfuscating JavaScript code using JavaScriptObfuscator.",
+  "main": "nodejs_code_obfuscator.js",
+  "type": "module",
+  "scripts": {
+    "start": "node nodejs_code_obfuscator.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "javascript-obfuscator": "^4.0.0"
+  },
+  "keywords": [
+    "nodejs",
+    "javascript",
+    "code-obfuscator",
+    "javascript-obfuscator",
+    "express",
+    "backend"
+  ],
+  "author": "MD SAZZAD HOSEN",
+  "license": "MIT"
+}
